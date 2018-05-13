@@ -52,6 +52,7 @@ body{
 	color:#555;
 }
 .chat__message{
+	position: relative;
 }
 .chat__avatar{
 	width: 40px;
@@ -69,4 +70,11 @@ body{
 .chat__text{
 	display: inline-block;
 	color:#333;
+}
+.chat__date{
+	position: absolute;
+	bottom: 7px;
+	left: 68px;
+	font-size: 10px;
+	color: #999;	
 }

@@ -1,16 +1,18 @@
+
 var app = {};
+
 // модель
 app.Message = Backbone.Model.extend({
 	defaults: {
-		message: ''
+		message: '',
+		date: ''
 	}
 });
+
 //Коллекция
 app.AllMessage = Backbone.Collection.extend({
 	model: app.Message
 });
-
-var allMessage = new app.AllMessage;
 
 //Вид чата
 app.ViewChat = Backbone.View.extend({
@@ -26,8 +28,10 @@ app.ViewChat = Backbone.View.extend({
 		this.listenTo(allMessage, 'add', this.addNewMessage);
 	},
 	addMessage: function(){
+		var date = new Date();
 		allMessage.add({
-			message: $('#chatField').text()
+			message: $('#chatField').text(),
+			date: date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()
 		});
 	},
 	addNewMessage: function(model){
@@ -35,6 +39,7 @@ app.ViewChat = Backbone.View.extend({
 		this.$('#chatWindow').prepend(message.render());
 	}
 });
+
 //Вид сообщения
 app.ViewMessage = Backbone.View.extend({
 	initialize: function(){
@@ -43,12 +48,10 @@ app.ViewMessage = Backbone.View.extend({
 	template: _.template($('#templateMessage').html()),
 	render: function(){
 		this.$el.html(this.template(this.model.toJSON()));
-		// console.log(this.$el['0'].innerHTML);
 		return this.$el;
 	}
 });
 
-
-var b = new app.ViewChat({
-	el: '#chatWrapper'
-});
+// Инициализация
+var allMessage = new app.AllMessage;
+var b = new app.ViewChat({el: '#chatWrapper'});
