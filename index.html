@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chat</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<div class="chat">
+		<div id="chatWrapper"></div>
+		<div contenteditable="true" class="chat__field"></div>
+		<div class="chat__button">Отправить</div>
+	</div>
+
+<!-- ===== templates ===== -->
+<!-- Основной шаблон -->
+<script type="text/template" id="template">
+	<div class="chat__window"></div>	
+</script>
+<!-- Шаблон сообщения -->
+<script type="text/template" id="template">
+	<div class="chat__message">
+		<div class="chat__avatar"></div>
+		<div class="chat__text"><%= message %></div>
+	</div>	
+</script>
+<!-- ===== templates ===== -->
+
+<!-- ===== scripts ===== -->
+<script src="libs/jquery-3.3.1.min.js"></script>
+<script src="libs/underscore-min.js"></script>
+<script src="libs/backbone-min.js"></script>
+<script src="js/script.js"></script>
+<!-- ===== scripts ===== -->
+
+</body>
+</html>
