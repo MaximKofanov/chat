@@ -9,17 +9,17 @@
 
 	<div class="chat">
 		<div id="chatWrapper"></div>
-		<div contenteditable="true" class="chat__field"></div>
-		<div class="chat__button">Отправить</div>
 	</div>
 
 <!-- ===== templates ===== -->
 <!-- Основной шаблон -->
 <script type="text/template" id="template">
-	<div class="chat__window"></div>	
+	<div class="chat__window" id="chatWindow"></div>	
+	<div contenteditable="true" class="chat__field" id="chatField"></div>
+	<div class="chat__button" id="send">Отправить</div>
 </script>
 <!-- Шаблон сообщения -->
-<script type="text/template" id="template">
+<script type="text/template" id="templateMessage">
 	<div class="chat__message">
 		<div class="chat__avatar"></div>
 		<div class="chat__text"><%= message %></div>
